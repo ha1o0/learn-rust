@@ -1,4 +1,9 @@
+use learn_rust::base_type_4_1;
+use learn_rust::variable_3;
+
 fn main() {
+    variable_3::test();
+    base_type_4_1::test();
     println!("Hello, world!");
     hello();
     let a: f32 = 12.62;
@@ -10,10 +15,7 @@ fn main() {
     tupletest();
     structtest();
     println!("add: {}", add(3, 5));
-    let t = Test {
-        a: 5,
-        b: "halob"
-    };
+    let t = Test { a: 5, b: "halob" };
     println!("AB: {:?}", t.get());
     let b = [1, 2, 5];
     printarr(&b);
@@ -24,11 +26,14 @@ fn main() {
 #[derive(Debug)]
 enum IpAddr {
     V4(String),
-    V6(String)
+    V6(String),
 }
 
 fn testvector() {
-    let a = vec![IpAddr::V4(String::from("8.8.8.8")), IpAddr::V6(String::from("aa::bb::cc::dd"))];
+    let a = vec![
+        IpAddr::V4(String::from("8.8.8.8")),
+        IpAddr::V6(String::from("aa::bb::cc::dd")),
+    ];
     for item in a {
         showip(item);
     }
@@ -38,11 +43,11 @@ fn showip(ip: IpAddr) {
     println!("ip: {:?}", ip);
 }
 
-fn printarr (arr: &[i32]) {
+fn printarr(arr: &[i32]) {
     println!("arr: {:?}", arr);
 }
 
-fn printarr_t<T: std::fmt::Debug, const N: usize> (arr: [T; N]) {
+fn printarr_t<T: std::fmt::Debug, const N: usize>(arr: [T; N]) {
     println!("arr: {:?}", arr);
 }
 
@@ -52,20 +57,20 @@ struct Test<T, P> {
     b: P,
 }
 
-impl <T, P> Test<T, P> {
-    fn get(&self) -> (&T, &P){
+impl<T, P> Test<T, P> {
+    fn get(&self) -> (&T, &P) {
         (&self.a, &self.b)
     }
 }
 
-fn add<T: std::ops::Add<Output = T>>(a:T, b:T) -> T {
+fn add<T: std::ops::Add<Output = T>>(a: T, b: T) -> T {
     a + b
 }
 
 fn copy1() {
     let x: &str = "hello, world";
     let y = x;
-    println!("{},{}",x,y);
+    println!("{},{}", x, y);
 }
 
 fn func() -> i32 {
@@ -77,7 +82,10 @@ fn func() -> i32 {
 fn yinyong() {
     let a_string: String = String::from("helloo");
     let a_yin = &a_string;
-    println!("avalue: {}, yin value: {}, jieyin value: {}", a_string, a_yin, *a_yin);
+    println!(
+        "avalue: {}, yin value: {}, jieyin value: {}",
+        a_string, a_yin, *a_yin
+    );
     println!("len: {}", a_yin.len());
 }
 
@@ -97,7 +105,6 @@ struct User {
     name: String,
     age: i8,
 }
-
 
 fn structtest() {
     let mut user = User {
