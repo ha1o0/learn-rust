@@ -1,11 +1,9 @@
 use learn_rust::variable_3;
 use learn_rust::base_type_4_1;
 use learn_rust::base_type_4_2;
+use learn_rust::base_type_4_3;
 
 fn main() {
-    variable_3::test();
-    base_type_4_1::test();
-    base_type_4_2::test();
     println!("Hello, world!");
     hello();
     let a: f32 = 12.62;
@@ -23,6 +21,10 @@ fn main() {
     printarr(&b);
     printarr_t(b);
     testvector();
+    variable_3::test();
+    base_type_4_1::test();
+    base_type_4_2::test();
+    base_type_4_3::test();
 }
 
 #[derive(Debug)]
