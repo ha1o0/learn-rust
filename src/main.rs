@@ -2,6 +2,7 @@ use learn_rust::variable_3;
 use learn_rust::base_type_4_1;
 use learn_rust::base_type_4_2;
 use learn_rust::base_type_4_3;
+use learn_rust::base_type_4_4;
 
 fn main() {
     println!("Hello, world!");
@@ -25,6 +26,7 @@ fn main() {
     base_type_4_1::test();
     base_type_4_2::test();
     base_type_4_3::test();
+    base_type_4_4::test();
 }
 
 #[derive(Debug)]
