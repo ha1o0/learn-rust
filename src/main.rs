@@ -3,8 +3,9 @@ use learn_rust::base_type_4_1;
 use learn_rust::base_type_4_2;
 use learn_rust::base_type_4_3;
 use learn_rust::base_type_4_4;
+use learn_rust::rpc;
 
-fn main() {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Hello, world!");
     hello();
     let a: f32 = 12.62;
@@ -27,6 +28,8 @@ fn main() {
     base_type_4_2::test();
     base_type_4_3::test();
     base_type_4_4::test();
+    // start rpc server
+    return rpc::go();
 }
 
 #[derive(Debug)]
