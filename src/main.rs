@@ -29,7 +29,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     base_type_4_3::test();
     base_type_4_4::test();
     // start rpc server
-    return rpc::go();
+    // return rpc::go();
+    // rpc client call
+    return rpc::hi();
 }
 
 #[derive(Debug)]

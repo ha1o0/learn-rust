@@ -1,5 +1,7 @@
 use hello_world::greeter_server::{Greeter, GreeterServer};
 use hello_world::{HelloRequest, HelloResponse};
+use hello_world::{greeter_client::GreeterClient};
+use tonic::transport::Channel;
 
 use chrono::Local;
 use tonic::{transport::Server, Request, Response, Status};
@@ -39,6 +41,25 @@ pub async fn go() -> Result<(), Box<dyn std::error::Error>> {
         .add_service(svc)
         .serve(addr)
         .await?;
+
+    Ok(())
+}
+
+#[tokio::main]
+pub async fn hi() -> Result<(), Box<dyn std::error::Error>> {
+    let channel = Channel::from_static("http://[::1]:50051")
+        .connect()
+        .await?;
+
+    let mut client = GreeterClient::new(channel);
+
+    let request = tonic::Request::new(HelloRequest {
+        name: "World".into(),
+    });
+
+    let response = client.say_hello(request).await?.into_inner();
+
+    println!("Greeting: {}", response.message);
 
     Ok(())
 }
