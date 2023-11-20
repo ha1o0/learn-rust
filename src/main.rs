@@ -1,9 +1,10 @@
-use learn_rust::variable_3;
 use learn_rust::base_type_4_1;
 use learn_rust::base_type_4_2;
 use learn_rust::base_type_4_3;
 use learn_rust::base_type_4_4;
 use learn_rust::rpc;
+use learn_rust::test_1;
+use learn_rust::variable_3;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Hello, world!");
@@ -28,10 +29,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     base_type_4_2::test();
     base_type_4_3::test();
     base_type_4_4::test();
+    test_1::exec();
     // start rpc server
-    // return rpc::go();
+    return rpc::go();
     // rpc client call
-    return rpc::hi();
+    // return rpc::hi();
 }
 
 #[derive(Debug)]
