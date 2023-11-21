@@ -1,3 +1,5 @@
+use chrono::ParseMonthError;
+
 pub fn exec() {
     a();
 }
@@ -29,6 +31,14 @@ fn a() {
 
     let result = luhn("7992739871");
     println!("{result}");
+
+    let local_str = get_local(" ha");
+    println!("{local_str}");
+}
+
+fn get_local(param: &str) -> String {
+    let a = String::from("i'm local string") + param;
+    a
 }
 
 #[allow(unused_variables, dead_code)]
@@ -105,17 +115,17 @@ fn luhn(number: &str) -> bool {
             println!("> 9");
             return false;
         }
-        println!("index: {i}, origin: {num}");
+        // println!("index: {i}, origin: {num}");
         if i % 2 == 1 {
             num = num * 2;
             if num > 9 {
                 num -= 9;
             }
         }
-        println!("{num}");
+        // println!("{num}");
         sum += num;
     }
-    println!("{sum}");
+    // println!("{sum}");
     if sum % 10 != 0 {
         println!("not 0");
         return false;
