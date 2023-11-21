@@ -34,6 +34,14 @@ fn a() {
 
     let local_str = get_local(" ha");
     println!("{local_str}");
+
+    let mut a = 30;
+    let b = &mut a;
+    *b = 200;
+    println!("{}", b);
+    let c = &mut a;
+    *c = 100;
+    println!("{}", c);
 }
 
 fn get_local(param: &str) -> String {
