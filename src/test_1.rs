@@ -1,10 +1,23 @@
-use chrono::ParseMonthError;
+use std::collections::HashMap;
 
 pub fn exec() {
     a();
 }
 
 fn a() {
+    let mut vec1 = vec![1, 2, 3];
+    let vec2 = vec![4, 5, 6];
+    vec1.extend(vec2.iter());
+    println!("vec1: {:?}, vec2: {:?}", vec1, vec2);
+
+    let mut book_shelf = HashMap::new();
+    book_shelf.insert("book1", 150);
+    book_shelf.insert("book2", 100);
+    let book2_count = book_shelf.get("book2").unwrap_or(&0);
+    println!("book2count: {}", book2_count);
+    let book3_count = book_shelf.entry("book3").or_insert(220);
+    println!("book3_count: {}", book3_count);
+
     let matrix = [[101, 102, 103], [201, 202, 203], [301, 302, 303]];
 
     println!("matrix:");
